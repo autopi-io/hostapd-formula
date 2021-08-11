@@ -12,6 +12,10 @@ hostapd:
       country_code: DE          # the country code
       ieee80211n: 1             # 802.11n support
       wmm_enabled: 1            # QoS support
+      allow_list:               # List of allowed (/etc/hostapd/hostapd.accept) MAC addresses
+        - 00:00:00:00:00:00
+        - 11:11:11:11:11:11
+        - 22-22-22-22-22-22     # can also use dashes
       ap_list:
         myssid1:                # the name of the AP
           auth_algs: 1          # 1=wpa, 2=wep, 3=both

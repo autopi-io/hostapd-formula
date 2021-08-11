@@ -27,6 +27,10 @@ ieee80211n={{ card_data.get('ieee80211n') }}
 {%- if card_data.wmm_enabled is defined %}
 wmm_enabled={{ card_data.get('wmm_enabled') }}
 {%- endif %}
+{%- if card_data.allow_list %}
+macaddr_acl=1
+accept_mac_file=/etc/hostapd/hostapd.accept
+{%- endif %}
 {#- don't break compatibility with old config format #}
 {%- set ap_list_orig = card_data.get('ap_list', {}) %}
 {%- set ap_list = ap_list_orig.iteritems() if ap_list_orig is mapping else ap_list_orig %}
